@@ -1,0 +1,11 @@
+<h1>Restaurant#show</h1>
+<p>Find me in app/views/restaurant/show.html.erb</p>
+<div class= "restaurant-index">
+    <div class="restaurants">
+      <ul>
+      <% @restaurants.each do |res| %>
+        <li><%= res.id %>.<%= res.name %></li>
+      <% end %>
+      </ul>
+    </div>
+</div>
