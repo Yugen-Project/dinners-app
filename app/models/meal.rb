@@ -1,6 +1,6 @@
 class Meal < ApplicationRecord
-    belongs_to :Restaurant
-    has_many :orders, through: :Restaurant
+    belongs_to :restaurant
+    has_many :orders, through: :restaurant
     validates :name, presence: true
     validates :description, presence: true
 end
