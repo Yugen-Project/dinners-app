@@ -1,11 +1,24 @@
-<h1>Restaurant#show</h1>
-<p>Find me in app/views/restaurant/show.html.erb</p>
-<div class= "restaurant-index">
-    <div class="restaurants">
-      <ul>
-      <% @restaurants.each do |res| %>
-        <li><%= res.id %>.<%= res.name %></li>
-      <% end %>
-      </ul>
-    </div>
+<div class="back-icon">
+  <p><h2><%= link_to "<", root_path %></h2></p>
 </div>
+
+<div class= "restaurant-show">
+    <div class="restaurant">
+      <ul>
+        <li><h1><%= @restaurant.id %>.<%= @restaurant.name %></h1></li>
+      </ul>
+      <p><%= @restaurant.description %></p>
+ 
+      <%= image_tag @restaurant.restaurant_img_url %>
+      <button onclick="btn_click()"class="book-btn">Open Modal</button>
+    </div>
+    
+</div>
+
+
+<script>
+  function btn_click() {
+    alert("Boked");
+    
+  }
+</script>
