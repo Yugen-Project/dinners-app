@@ -1,0 +1,25 @@
+<div class="back-icon">
+  <p><h2><%= link_to "<", restaurant_show_path(@restaurants, id:@meal.restaurant_id) %></h2></p>
+</div>
+
+<div class= "meal-show">
+    <div class="meal">
+      <ul>
+        <li><h1><%= @meal.id %>.<%= @meal.name %></h1></li>
+      </ul>
+      <p><%= @meal.description %></p>
+ 
+      <%= image_tag @meal.meal_img_url %>
+      <p><%= @meal.price %></p>
+      <button onclick="btn_click()"class="book-btn">Open Modal</button>
+    </div>
+    
+</div>
+
+
+<script>
+  function btn_click() {
+    alert("Boked");
+    
+  }
+</script>

@@ -1,0 +1,11 @@
+<h1>Meals#index</h1>
+
+<div class= "meal-index">
+    <div class="meals">
+      <ul>
+      <% @meals.each do |meal| %>
+        <li><%= meal.id %>.<%= link_to meal.name, show_path(@meal, id:meal.id) %></li>
+      <% end %>
+      </ul>
+    </div>
+</div>
