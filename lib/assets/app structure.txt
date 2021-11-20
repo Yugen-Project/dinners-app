@@ -1,0 +1,86 @@
+Restaurant App
+Models--+ Restaurants(^)
+		= attributes =
+		- restaurant id
+		- name
+		- description
+		- picture
+		- location
+		- contact
+		- menu
+		
+		= validations =
+		- has many meals
+		- has many tables
+		- has many orders
+		- belongs to order
+
+		= controller=
+		- index
+		- show
+		- menu(meals)
+		- add to cart(user)
+		- remove from cart
+		- new order
+
+	   --+ Reservations 
+		= attributes =
+		- reservation id
+		- restaurant id		
+
+		= valiations=
+		- belongs to a restaurant
+		
+
+	   --+ Meals(^)	
+		= attributes =
+		- meal id
+		- name
+		- description
+		- picture
+
+		= validations =
+		- belongs to restaurants
+		- belongs to orders
+	
+	   --+ Orders(^)
+		= attributes =
+		- order id
+		- meal id
+		- restaurant id
+		- quantity
+
+		= validations =
+		- has many meals
+		- belongs to restaurant
+		- belongs to user
+
+		= controller=
+		- index
+		- show
+		- create(new order in cart *can remove items. each item is a card)
+		- delete
+
+
+	   --+ User
+		= attributes =
+		- user id
+		- name
+		- order id
+
+		= validations = 
+		- has many orders
+		- has many meals through orders
+		
+		= controller=
+		-- orders controller-- 
+	   	restaurant{
+		restaurant.id:xxx,
+		name:xxx,
+		....
+		restaurant_tables: {
+				number of tables:xxx,
+				available tables:xxx
+		}
+	}
+
