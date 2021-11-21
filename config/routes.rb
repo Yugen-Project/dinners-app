@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root to: "restaurants#index"
   # get 'restaurants', to: "restaurant#index", as: "root"
   get 'restaurant/:id', to: "restaurants#show", as: "restaurant_show"
