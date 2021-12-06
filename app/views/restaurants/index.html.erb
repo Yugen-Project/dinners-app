@@ -4,7 +4,11 @@
     <div class="restaurants">
       <ul>
       <% @restaurants.each do |res| %>
-        <li><%= res.id %>.<%= link_to res.name, restaurant_show_path(@restaurants, id:res.id) %></li>
+        <div class="card-category">
+          <div>
+            <%= link_to res.name, restaurant_show_path(@restaurants, id:res.id) %>
+          </div>
+        </div>
       <% end %>
       </ul>
     </div>
