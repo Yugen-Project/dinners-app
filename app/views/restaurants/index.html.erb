@@ -1,10 +1,10 @@
-<h1>Restaurant#show</h1>
-<p>Find me in app/views/restaurant/show.html.erb</p>
+<h1>Restaurant#index</h1>
+
 <div class= "restaurant-index">
     <div class="restaurants">
       <ul>
       <% @restaurants.each do |res| %>
-        <li><%= res.id %>.<%= res.name %></li>
+        <li><%= res.id %>.<%= link_to res.name, restaurant_show_path(@restaurants, id:res.id) %></li>
       <% end %>
       </ul>
     </div>

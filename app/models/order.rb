@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-    belongs_to :Restaurant
+    belongs_to :restaurant
     # validates :name, presence: true
     # validates :description, presence: true
     # validates :capacity, presence: true , length: { minimum: 0 }
