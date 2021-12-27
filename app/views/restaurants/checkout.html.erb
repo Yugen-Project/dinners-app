@@ -1,0 +1,18 @@
+<div class="back-icon">
+  <p><h2><%= link_to "<", restaurant_show_path %></h2></p>
+</div>
+<div class="checkout-header">
+    Checkout 
+</div>
+<div class="checkout-container">
+    <div class="restaurant-content">
+      <h1> <%=@restaurant.name%> </h1>
+      <h3> <%=@date%> </h3>
+    </div>
+    <div class="meal-content">
+      <h4> <%=@meal.name%> </h4>
+      <h4> <%=@meal.price%> </h4>
+      
+    </div>
+    
+</div>

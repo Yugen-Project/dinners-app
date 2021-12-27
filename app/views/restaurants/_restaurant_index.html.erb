@@ -1,0 +1,15 @@
+<h1>Restaurant#index</h1>
+
+<div class= "restaurant-index">
+    <div class="restaurants">
+      <ul>
+      <% restaurants.each do |res| %>
+        <div class="card-category">
+          <div>
+            <%= link_to res.name, restaurant_show_path(@restaurants, id:res.id), method: :get %>
+          </div>
+        </div>
+      <% end %>
+      </ul>
+    </div>
+</div>
