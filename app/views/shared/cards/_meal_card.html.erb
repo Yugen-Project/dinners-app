@@ -1,0 +1,24 @@
+<div class="card-meal">
+    <div class="card-meal-img">
+    <%= image_tag meal.meal_img_url, alt:"meal image" %>
+    </div>
+    <div class="card-meal-content">
+        <div class="card-meal-name">
+            <%= link_to meal.name.length > 8 ? meal.name.slice(0..8)+'...' : meal.name, meal_show_path(@meals, id:meal.id) %>
+        </div>
+        <div class="card-meal-price">
+            <%= meal.price%>
+            <%if local_assigns[:check_out] != nil%>
+                <div class="btn">
+                    <%= link_to "+", restaurant_checkout_path(meal: meal)%>
+                </div>
+            <%end%>
+        </div>
+        <%if local_assigns[:description] != nil %>
+            <div class="card-meal-des">
+                <%= description%>
+            </div>
+        <%end%>
+    </div>
+
+</div>

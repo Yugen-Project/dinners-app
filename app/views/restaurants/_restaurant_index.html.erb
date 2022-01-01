@@ -2,14 +2,35 @@
 
 <div class= "restaurant-index">
     <div class="restaurants">
-      <ul>
       <% restaurants.each do |res| %>
-        <div class="card-category">
-          <div>
-            <%= link_to res.name, restaurant_show_path(@restaurants, id:res.id), method: :get %>
-          </div>
+        <div id = <%= res.id%> class="card-category">
+            <div class="card-head">
+              <div class="card-img">
+                <%= image_tag res.restaurant_img_url, alt:"restaurant image" %>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="card-res">
+                <div class="card-res-name">
+                  <%= link_to res.name, restaurant_show_path(@restaurants, id:res.id) %>
+
+                </div>
+                <div class="card-res-loc">
+                  <%= res.location%>
+                </div>
+              </div>
+              <%if local_assigns[:card_path] != nil%>
+                <div class="card-meals">
+                  <%res.meals[0..3].each do |meal|%>
+                      <%= render partial: card_path, locals:{meal: meal} %>
+                  <%end%>
+                </div>
+
+              <%else%>
+                <div class="div"></div>
+              <%end%>
+            </div>
         </div>
       <% end %>
-      </ul>
     </div>
 </div>
