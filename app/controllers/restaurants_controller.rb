@@ -1,10 +1,19 @@
 class RestaurantsController < ApplicationController
+  before_action :set_restaurant
   def index
     @restaurants = Restaurant.all
   end
 
+  def checkout
+    @resaurrant = Restaurant.find(params[:id])
+    @meal = Meal.find(params[:meal])
+    @date = DateTime.now()
+  end
+
   def show
-    @restaurant = Restaurant.find(params[:id])
+    @restaurant
+    p "show was triggered"
+
   end
 
   def create
@@ -26,13 +35,12 @@ class RestaurantsController < ApplicationController
     @restaurant.destroy
   end
 
-  # private
+  private
   # #Restaurant id: nil, name: nil, description: nil, restaurant_img_url: nil, tables: nil, location: nil, contact: nil, avail_tables: nil
-  # def set_restaurant
-  #   @restaurant = Restaurant.find(params[:id])
-
-  # end
-  # def restaurant_params
-  #   params.require(:restaurant).permit(:id, :name, :location, :description, :restaurant_img_url, :tables, :avail_tables, :contact)
-  # end
+  def set_restaurant
+    @restaurant = Restaurant.find(params[:id])
+  end
+  def restaurant_params
+    params.require(:restaurant).permit(:id, :name, :location, :description, :restaurant_img_url, :tables, :avail_tables, :contact)
+  end
 end

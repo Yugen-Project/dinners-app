@@ -4,7 +4,7 @@
     <div class="meals">
       <ul>
       <% @meals.each do |meal| %>
-        <li><%= meal.id %>.<%= link_to meal.name, show_path(@meal, id:meal.id) %></li>
+        <li><%= meal.id %>.<%= link_to meal.name, meal_show_path(@meal, id:meal.id) %></li>
       <% end %>
       </ul>
     </div>

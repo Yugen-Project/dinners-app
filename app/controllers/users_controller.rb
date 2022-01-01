@@ -1,7 +1,16 @@
-class UsersControllerclass < ApplicationController
-  before_action :set_user
+class UsersController < ApplicationController
+  before_action :set_user 
     def index
       @users = User.all
+    end
+
+    def login
+      render "devise/sessions/new"
+    end
+
+    def user_profile
+      @order_history = @user.orders
+
     end
   
     def show
@@ -30,7 +39,7 @@ class UsersControllerclass < ApplicationController
     private
     #user id: nil, name: nil, description: nil, user_img_url: nil, tables: nil, location: nil, contact: nil, avail_tables: nil
     def set_user
-      @user = User.find(params[:id])
+      @user = current_user
   
     end
     def user_params

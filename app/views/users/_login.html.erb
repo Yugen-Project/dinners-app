@@ -1,0 +1,14 @@
+
+<% if user_signed_in? %>
+    <div class="logged-in">
+        Hello, <%= link_to current_user.email, user_profile_path(username: {tag: current_user})%>!
+    </div>
+    <div class="sign-out">
+        <%= button_to "sign out", destroy_user_session_path , method: :delete%>
+    </div>
+<% else %>
+    <div class="login">
+        <%= link_to "sign in", user_session_path%>
+    </div>
+<%end%>
+

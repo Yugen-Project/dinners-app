@@ -2,31 +2,36 @@
   <p><h2><%= link_to "<", root_path %></h2></p>
 </div>
 
+<div class="flash-msg">
+  <%= flash.now[:notice] %>
+</div>
 <div class= "restaurant-show">
     <div class="restaurant-info">
       <ul>
-        <li><h1><%= @restaurant.id %>.<%= @restaurant.name %></h1></li>
+        <li>
+          <h1><%= @restaurant.id %>.<%= @restaurant.name %></h1>
+        </li>
       </ul>
       <p><%= @restaurant.description %></p>
  
       <%= image_tag @restaurant.restaurant_img_url %>
-      <button onclick="btn_click()"class="book-btn">Open Modal</button>
+      
     </div>
     <div class="restaurant-meals">
         <ul>
       <% @restaurant.meals.each do |meal| %>
-        <li><%= meal.id %>.</li>
-        <%= link_to meal.name, meal_show_path(@meals, id:meal.id) %>
+        <li>
+          <%= meal.id %>.
+          <%= link_to meal.name, meal_show_path(@meals, id:meal.id) %>
+          <button onclick="btn_click('<%= meal.name %>')"class="book-btn" style="font-weight: bold;">+</button>
+          <div class="btn">
+            <%= link_to "+", restaurant_checkout_path(meal: meal)%>   
+          </div>
+        </li>
+        
+
       <% end %>
       </ul>
     </div>
     
 </div>
-
-
-<script>
-  function btn_click() {
-    alert("Boked");
-    
-  }
-</script>
