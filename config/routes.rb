@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # get "restaurants", to: "restaurant#index", as: "root"
   get "restaurant/:id", to: "restaurants#show", as: "restaurant_show"
   get "restaurant/:id/checkout", to: "restaurants#checkout", as: "restaurant_checkout"
+  # post "restaurant/:id/checkout", to: "restaurants#checkout_confirm", as: "restaurant_checkout"
   post "restaurant/:id", to: "restaurants#create", as: "restaurant_new" 
   post "restaurant/:id", to: "restaurants#update", as: "restaurant_edit" 
   post "restaurant/:id", to: "restaurants#destroy", as: "restaurant_delete"
@@ -15,8 +16,8 @@ Rails.application.routes.draw do
   post "meal/:id", to: "meals#update", as: "meal_edit" 
   post "meal/:id", to: "meals#destroy", as: "meal_delete"
 
+  post "restaurant/:id/checkout", to: "orders#create", as: "order_add" 
   get "order/:id", to: "orders#show", as: "order_show"
-  post "order/:id", to: "orders#create", as: "order_new" 
   post "order/:id", to: "orders#update", as: "order_edit" 
   post "order/:id", to: "orders#destroy", as: "order_delete"
 

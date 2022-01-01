@@ -10,21 +10,20 @@ class OrdersController < ApplicationController
       end
     
       def create
-        p "create called"
-        @new_order = Order.new(date: DateTime.now(), restaurant_id: params[:restaurant], meal_id: params[:meal] , user_id: current_user.id, quantity:1)
-        p @new_order.valid?
+        @new_order = Order.new(order_params)
+        @new_order.id = nil
+ 
         if @new_order.save
-          # render json: { status: 'success'}
-          flash[:notice] = " #{Meal.find(params[:meal]).name} added to cart"
+          flash[:notice] = " #{Meal.find(order_params[:meal_id]).name} added to cart"
           @res = true
           p "success!"
+          flash[:notice] = "order complete"
+
         else
-          flash[:notice] = "could not add to cart"
           
           @res = false
-          # render error
         end
-
+    
         p "create called end"
       end
       def cart
@@ -32,7 +31,7 @@ class OrdersController < ApplicationController
       end
     
       def update
-        @order.update(room_params)
+        @order.update(order_params)
       end
     
       def destroy 
@@ -46,6 +45,6 @@ class OrdersController < ApplicationController
     
       end
       def order_params
-        params.require(:order).permit(:id, :date, :quantity, :restaurant_id, :meal_id)
+        params.permit(:id,:date, :quantity, :restaurant_id, :meal_id, :user_id)
       end
 end

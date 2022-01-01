@@ -1,16 +1,21 @@
 class RestaurantsController < ApplicationController
+  before_action :authenticate_user!, only: [ :checkout]
   before_action :set_restaurant
+  
   def index
     @restaurants = Restaurant.all
   end
 
   def checkout
-    @resaurrant = Restaurant.find(params[:id])
-    @meal = Meal.find(params[:meal])
-    @date = DateTime.now()
+      @resaurrant = Restaurant.find(params[:id])
+      @meal = Meal.find(params[:meal])
+      @date = DateTime.now()
+      @user = current_user
+      set_flash_notice = "order complete"
   end
-
+  
   def show
+
     @restaurant
     p "show was triggered"
 

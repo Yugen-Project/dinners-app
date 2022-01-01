@@ -1,7 +1,5 @@
 <div class="landing-container" >
-    <div class="navbar">
-        <%= render partial: "navbar/navbar" %>
-    </div>
+    
     <div class="landing-content">
         <%= render partial: "restaurants/restaurant_index", locals:{restaurants: Restaurant.all} %>
     </div>
