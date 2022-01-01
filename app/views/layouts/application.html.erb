@@ -11,6 +11,12 @@
   </head>
 
   <body>
+    <div class="navbar">
+        <%= render partial: "navbar/navbar" %>
+    </div>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
+ 
   </body>
 </html>

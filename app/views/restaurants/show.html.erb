@@ -2,9 +2,6 @@
   <p><h2><%= link_to "<", root_path %></h2></p>
 </div>
 
-<div class="flash-msg">
-  <%= flash.now[:notice] %>
-</div>
 <div class= "restaurant-show">
     <div class="restaurant-info">
       <ul>
@@ -23,15 +20,23 @@
         <li>
           <%= meal.id %>.
           <%= link_to meal.name, meal_show_path(@meals, id:meal.id) %>
-          <button onclick="btn_click('<%= meal.name %>')"class="book-btn" style="font-weight: bold;">+</button>
+        
           <div class="btn">
-            <%= link_to "+", restaurant_checkout_path(meal: meal)%>   
+            <%= link_to "+", restaurant_checkout_path(meal: meal)%>
           </div>
+          
+
         </li>
         
 
       <% end %>
       </ul>
-    </div>
-    
+    </div>    
 </div>
+
+<%
+=begin%>
+ <button onclick="btn_click('<%= meal.name %>')"class="book-btn" style="font-weight: bold;">+</button> 
+<%
+=end%>
+
